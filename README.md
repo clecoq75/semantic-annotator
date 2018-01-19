@@ -132,7 +132,7 @@ The "substitutions" member of a rule allow to replace a matching group by a give
 
 | syntactic pattern | substitutions | text | result |
 | --- | --- | --- | --- |
-| @DT (dog@NN&#124;cat:NN) | 1:Pet | the dog | the *Pet* |
+| @DT (dog@NN&#124;cat@NN) | 1:Pet | the dog | the *Pet* |
 | (hello@&#124;hi) (@NNP) | 1:HI,2:WHO | Hello Bryan | *HI* *WHO* |
 
 ## How to embed the "Semantic Annotator" in your code :
