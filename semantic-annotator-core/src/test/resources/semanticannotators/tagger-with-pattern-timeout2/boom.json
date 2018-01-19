@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "regexp": "(0*)*A",
+      "tags": [  { "value": "boom", "exported": true } ],
+      "samples": [ "0A" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "0A" ],
+      "tags": [ "boom" ]
+    }
+  ]
+}

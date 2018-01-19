@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "pattern": "(@DET;pers=2|ta)",
+      "substitutions": "1:YOUR",
+      "samples": [
+        "ton nom", "j'aime ton nom",
+        "ta voiture", "j'aime ta voiture",
+        "tes cheveux", "j'aime tes cheveux",
+        "votre lapin", "donnez moi votre lapin",
+        "vos envies", "écoutez vos envies"
+      ]
+    }
+  ]
+}

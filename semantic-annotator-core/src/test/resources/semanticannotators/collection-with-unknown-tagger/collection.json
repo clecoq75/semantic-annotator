@@ -1,0 +1,12 @@
+{
+  "collection": [
+    "smallDog",
+    "johnWayne"
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "j'aime ce petit chien" ],
+      "tags": [ "smallDog" ]
+    }
+  ]
+}

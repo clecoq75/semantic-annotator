@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "regexp": ".*#[a-zA-Z0-9-]+.*",
+      "tags": [  { "value": "hasTag", "exported": false } ],
+      "samples": [
+        "Coucou #BalanceTonNez :)"
+      ]
+    }
+  ]
+}

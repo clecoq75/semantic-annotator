@@ -1,0 +1,26 @@
+{
+  "rules": [
+    {
+      "pattern": "(yes:)? :DT (small:JJ|little:JJ) :NN (no:)? (:)*",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": false } ],
+      "samples": [ "a little dog", "the small cat" ]
+    },
+    {
+      "pattern": ":DT little: dog:NN",
+      "substitutions": null,
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "a little dog" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "I love this little dog" ],
+      "tags": [ "smallDog" ]
+    },
+    {
+      "verbatim": [ "I like this fat cat" ],
+      "tags": [ ]
+    }
+  ]
+}

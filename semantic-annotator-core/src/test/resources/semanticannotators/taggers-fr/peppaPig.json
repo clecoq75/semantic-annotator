@@ -1,0 +1,56 @@
+{
+  "rules": [
+    {
+      "pattern": ":ET|:NPP (pig:ET|pig:NPP)",
+      "substitutions": "1:Pig",
+      "tags": [ { "value": "pigFamily", "exported": false } ],
+      "samples": [
+        "Peppa Pig est là",
+        "Vive Daddy Pig",
+        "J'aime bien George Pig même s'il est petit"
+      ]
+    },
+    {
+      "applyIf": [ "pigFamily" ],
+      "pattern": "peppa: :Pig",
+      "substitutions": null,
+      "tags": [ { "value": "peppaPig", "exported": true } ],
+      "samples": [
+        "Peppa Pig est là",
+        "Vive Peppa Pig",
+        "J'aime bien Peppa Pig quant elle dort"
+      ]
+    },
+    {
+      "applyIf": [ "pigFamily" ],
+      "applyIfNot": [ "peppaPig" ],
+      "pattern": "daddy: :Pig",
+      "substitutions": null,
+      "tags": [ { "value": "daddyPig", "exported": true } ],
+      "samples": [
+        "Daddy Pig est là",
+        "Vive Daddy Pig",
+        "J'aime bien Daddy Pig quant il dort"
+      ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [
+        "Un jour, Peppa Pig viendra nous sauver !" ,
+        "Un jour, Peppa Pig et Daddy Pig viendront nous sauver !"
+      ],
+      "tags": [ "peppaPig" ]
+    },
+    {
+      "verbatim": [
+        "Un jour, Daddy Pig viendra nous sauver !"
+      ],
+      "tags": [ "daddyPig" ]
+    },
+    {
+      "verbatim": [ "Un jour, George Pig viendra nous sauver !" ],
+      "tags": [ ]
+    }
+  ]
+}

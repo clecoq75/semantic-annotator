@@ -1,0 +1,12 @@
+{
+  "collection": [
+    "emotionLove",
+    "emotionHate"
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "Je t'aime" ],
+      "tags": [ "emotionLove" ]
+    }
+  ]
+}

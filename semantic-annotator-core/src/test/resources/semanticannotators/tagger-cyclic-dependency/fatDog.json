@@ -1,0 +1,25 @@
+{
+  "importRules": [ "bigDog" ],
+  "rules": [
+    {
+      "pattern": ":DET (gros:ADJ) :NC",
+      "substitutions": "1:FAT",
+      "samples": [ "le petit lavabo" ]
+    },
+    {
+      "pattern": ":DET :FAT chien:NC",
+      "tags": [ { "value": "fatDog", "exported": true } ],
+      "samples": [ "ce gros chien", "le gros chien" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "J'aime bien ce gros chien bleu !" ],
+      "tags": [ "fatDog" ]
+    },
+    {
+      "verbatim": [ "J'aime bien ce petit chien bleu !" ],
+      "tags": [ ]
+    }
+  ]
+}

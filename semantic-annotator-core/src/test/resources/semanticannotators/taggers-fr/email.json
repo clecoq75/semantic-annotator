@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "regexp": "^[\\p{L}\\p{N}\\._%+-]+@[\\p{L}\\p{N}\\.\\-]+\\.[\\p{L}]{2,}$",
+      "tags": [ { "value": "email", "exported": true } ],
+      "samples": [ "bob@toto.com" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "raymond.lafarge@pigmalou.de" ],
+      "tags": [ "email" ]
+    },
+    {
+      "verbatim": [ "bisous.coucou" ],
+      "tags": [ ]
+    }
+  ]
+}

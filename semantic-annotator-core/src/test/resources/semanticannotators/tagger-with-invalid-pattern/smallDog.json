@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "pattern": ":DET BOOM%@P (petit:ADJ) :NC",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": true } ],
+      "samples": [ "le petit lavabo" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "le petit lavabo" ],
+      "tags": [ "pets" ]
+    }
+  ]
+}

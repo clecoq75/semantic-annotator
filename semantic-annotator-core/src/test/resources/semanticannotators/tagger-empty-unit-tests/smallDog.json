@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "pattern": ":DET (petit:ADJ) :NC",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": false } ],
+      "samples": [ "le petit lavabo" ]
+    },
+    {
+      "pattern": ":DET :SMALL chien:NC",
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "ce petit chien", "le petit chien" ]
+    }
+  ],
+  "unitTests": []
+}

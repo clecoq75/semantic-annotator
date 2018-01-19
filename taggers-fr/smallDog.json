@@ -1,0 +1,33 @@
+{
+  "importRules": [ "hashTag" ],
+  "rules": [
+    {
+      "pattern": "(petit@ADJ|mini|minuscule)",
+      "substitutions": "1:SMALL",
+      "tags": null,
+      "samples": [ "le petit lavabo" ]
+    },
+    {
+      "pattern": "@SMALL chien",
+      "substitutions": null,
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "ce petit chien", "le petit chien" ]
+    },
+    {
+      "pattern": "chien @SMALL",
+      "substitutions": null,
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "un chien minuscule", "un chien petit" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "J'aime bien ce petit chien bleu !" ],
+      "tags": [ "smallDog" ]
+    },
+    {
+      "verbatim": [ "J'aime bien ce gros chien bleu !" ],
+      "tags": [ ]
+    }
+  ]
+}

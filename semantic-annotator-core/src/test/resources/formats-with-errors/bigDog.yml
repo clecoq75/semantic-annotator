@@ -1,0 +1,23 @@
+rules:
+  - pattern: :DET (grand:ADJ) :NC
+    substitutions: 1:BIG
+    tags:
+      - value: pets
+        exported: false
+    samples:
+      - le grand lavabo
+  - pattern: :DET :BIG chien:NC
+    tags:
+      - value: bigDog
+        exported: true
+    samples:
+      - ce grand chien
+      - le grand chien
+jeanLouis:
+  - verbatim:
+      - J'aime bien ce grand chien bleu !
+    tags:
+      - bigDog
+  - verbatim:
+      - J'aime bien ce gros chien bleu !
+    tags:

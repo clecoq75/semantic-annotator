@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "pattern": "(@CLS;pers=2|@CLO;pers=2|@PRO;pers=2|@CL;pers=2|@CLR;pers=2)",
+      "substitutions": "1:YOU",
+      "samples": [
+        "vous",
+        "tu"
+      ]
+    }
+  ]
+}

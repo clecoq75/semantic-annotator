@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "pattern": "(@CLS;pers=1|@CLR;pers=1|@CLO;pers=1|@PRO;pers=1|@CLO;pers=1|on)",
+      "substitutions": "1:ME",
+      "samples": [
+        "je suis là",
+        "nous sommes là",
+        "peux tu me passer le sel ?",
+        "j'aime mon poisson",
+        "nous savons tout",
+        "on est pas bien là ?"
+      ]
+    }
+  ]
+}

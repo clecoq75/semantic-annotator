@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "pattern": "(:)*",
+      "substitutions": "1:TRUC",
+      "samples": [ "le petit lavabo", "" ]
+    }
+  ]
+}

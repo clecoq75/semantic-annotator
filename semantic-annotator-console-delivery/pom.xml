@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>semantic-annotator</artifactId>
+        <groupId>cle.nlp</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>semantic-annotator-console-delivery</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>semantic-annotator-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>semantic-annotator-console</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Generate unix classpath -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unix_classpath</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>build-classpath</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>target/unix_cp.properties</outputFile>
+                            <fileSeparator>/</fileSeparator>
+                            <pathSeparator>:</pathSeparator>
+                            <outputFilterFile>true</outputFilterFile>
+                            <prefix>lib</prefix>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>windows_classpath</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>build-classpath</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>target/windows_cp.properties</outputFile>
+                            <fileSeparator>\\</fileSeparator>
+                            <pathSeparator>;</pathSeparator>
+                            <outputFilterFile>true</outputFilterFile>
+                            <prefix>lib</prefix>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>Inject classpath</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target> <!-- We copy the .sh files with injection -->
+                                <copy todir="target/bin">
+                                    <fileset dir="src/main/bin">
+                                        <filename name="*.sh"/>
+                                    </fileset>
+                                    <filterset>
+                                        <filtersfile file="target/unix_cp.properties"/>
+                                        <filter token="batchJarName" value="${project.build.finalName}"/>
+                                    </filterset>
+                                </copy>
+                                <copy todir="target/bin">
+                                    <fileset dir="src/main/bin">
+                                        <filename name="*.bat"/>
+                                    </fileset>
+                                    <filterset>
+                                        <filtersfile file="target/windows_cp.properties"/>
+                                        <filter token="batchJarName" value="${project.build.finalName}"/>
+                                    </filterset>
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>src/main/assembly/delivery.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

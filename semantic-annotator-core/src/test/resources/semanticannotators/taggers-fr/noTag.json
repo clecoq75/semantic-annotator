@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "pattern": ":DET (solide:) :NC",
+      "substitutions": "1:SOLID",
+      "tags": [ { "value": "glam", "exported": false } ],
+      "samples": [ "le solide lavabo" ]
+    }
+  ]
+}

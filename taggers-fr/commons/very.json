@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "pattern": "(beaucoup|colossalement|énormément|excessivement|extraordinairement|extrêmement|fabuleusement|immensément|infiniment|prodigieusement|terriblement|très|trop)",
+      "substitutions": "1:VERY",
+      "samples": [ "il mange beaucoup", "il danse extraordinairement" ]
+    }
+  ]
+}

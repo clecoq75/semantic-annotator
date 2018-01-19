@@ -1,0 +1,30 @@
+{
+  "importRules": [ "peppaPig" ],
+  "rules": [
+    {
+      "applyIf": [],
+      "applyIfNot": [],
+      "applyIfNot": [],
+      "pattern": ":DET (petit:ADJ) :NC",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": false } ],
+      "samples": [ "le petit lavabo" ]
+    },
+    {
+      "pattern": ":DET :SMALL chien:NC",
+      "substitutions": null,
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "ce petit chien", "le petit chien" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "J'aime bien ce petit chien bleu !" ],
+      "tags": [ "smallDog" ]
+    },
+    {
+      "verbatim": [ "J'aime bien ce gros chien bleu !" ],
+      "tags": [ ]
+    }
+  ]
+}

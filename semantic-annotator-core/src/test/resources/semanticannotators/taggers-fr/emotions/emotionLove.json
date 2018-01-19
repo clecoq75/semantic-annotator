@@ -1,0 +1,66 @@
+{
+  "importRules": [ "few", "atLeast" ],
+  "rules": [
+    {
+      "pattern": "(aimer @FEW|bien|assez|pas|@V)",
+      "substitutions": "1:NOTLOVE",
+      "samples": [ "il aime bien la salade", "il t'aime un peu" ]
+    },
+    {
+      "pattern": "(@CLS|@NC|@NPP @CLS|@CLO|@CLR aimer)",
+      "substitutions": "1:LOVE",
+      "samples": [
+        "Je t'aime", "Tu m'aime", "Il l'aime", "Nous nous aimions",
+        "Je vous aime tant !", "Marc t'aime"
+      ]
+    },
+    {
+      "pattern": "(@CLS|@NC|@NPP aimer @NC|@NPP)",
+      "substitutions": "1:LOVE",
+      "samples": [ "J'aime Sophie", "Marc aime Sophie" ]
+    },
+    {
+      "pattern": "(@CLS|@NC|@NPP être (tomber)? (fou|follement|terriblement|tellement|très|trop)? amoureux)",
+      "substitutions": "1:LOVE",
+      "samples": [
+        "Je suis amoureux de vous", "il était terriblement amoureux d'elle",
+        "Il est tombé follement amoureux d'elle", "je suis trop amoureux de lui",
+        "Marc est tombé follement amoureux d'elle"
+      ]
+    },
+    {
+      "pattern": "(si (@)? @LOVE)",
+      "substitutions": "1:NOTLOVE",
+      "samples": [
+        "si tu m'aime", "si il était terriblement amoureux d'elle"
+      ]
+    },
+    {
+      "pattern": ":LOVE",
+      "tags": [ { "value": "emotionLove", "exported": true } ],
+      "samples": [
+        "Je t'aime", "Tu m'aimes", "Il l'aime", "Nous nous aimions", "J'aime Sophie",
+        "Je suis amoureux de vous", "il était terriblement amoureux d'elle", "je suis trop amoureux de lui",
+        "Marc était tombé follement amoureux d'elle", "Sophie était amoureuse de Jean"
+      ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [
+        "Je t'aime", "Tu m'aimes", "Il l'aime", "Nous nous aimions", "J'aime Sophie",
+        "Je suis amoureux de vous", "il était terriblement amoureux d'elle", "je suis trop amoureux de lui",
+        "Marc était tombé follement amoureux d'elle", "Sophie était amoureuse de Jean"
+      ],
+      "tags": [ "emotionLove" ]
+    },
+    {
+      "verbatim": [
+        "je t'aime bien", "j'aime les nouilles", "tu aime nager ?", "si tu m'aime",
+        "si il était terriblement amoureux d'elle", "si au moins était amoureux d'elle",
+        "si encore il l'aimait", "si à la limite il m'aimait", "Eric aime rigoler"
+      ],
+      "tags": []
+    }
+  ]
+}

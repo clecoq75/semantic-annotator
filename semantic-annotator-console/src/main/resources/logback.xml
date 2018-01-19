@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%message</pattern>
+            <outputPatternAsHeader>false</outputPatternAsHeader>
+        </encoder>
+    </appender>
+
+    <logger name="cle.nlp.annotator" level="OFF" />
+
+    <logger name="cle.nlp.annotator.console" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="OFF">
+
+    </root>
+</configuration>
+

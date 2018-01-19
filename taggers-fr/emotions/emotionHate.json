@@ -1,0 +1,42 @@
+{
+  "importRules": null,
+  "rules": [
+    {
+      "pattern": "(haïr|détester|abhorrer|maudire)",
+      "substitutions": "1:TOHATE",
+      "samples": [ "je te hais", "je te déteste", "je t'abhorre", "tu me maudis" ]
+    },
+    {
+      "pattern": "@CLS|@NPP|@NC @CLS|@CLO|@CLR @TOHATE",
+      "tags": [ { "value": "emotionHate", "exported": true } ],
+      "samples": [
+        "je te déteste", "je te hais", "tu m'abhorres", "Jacques te déteste"
+      ]
+    },
+    {
+      "pattern": "@CLS|@NPP|@NC @TOHATE @NC|@NPP",
+      "tags": [ { "value": "emotionHate", "exported": true } ],
+      "samples": [
+        "je déteste Sabine", "je hais Hector", "David déteste Simone"
+      ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [
+        "je te déteste", "je te hais", "tu m'abhorres",
+        "il nous détestait", "il vous haïssait", "je déteste Sabine",
+        "je hais Hector", "Hector maudissait Françine"
+      ],
+      "tags": [ "emotionHate" ]
+    },
+    {
+      "verbatim": [
+        "je t'aime bien", "j'aime les nouilles", "tu aime nager ?", "si tu m'aime",
+        "si il était terriblement amoureux d'elle", "si au moins il était amoureux d'elle",
+        "si encore il l'aimait", "si à la limite il m'aimait"
+      ],
+      "tags": []
+    }
+  ]
+}

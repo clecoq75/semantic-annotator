@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "pattern": ":DET (petit:ADJ) :NC",
+      "substitutions": "youpla",
+      "tags": [ { "value": "pets", "exported": true } ],
+      "samples": [ "le petit lavabo" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "le petit lavabo" ],
+      "tags": [ "pets" ]
+    }
+  ]
+}

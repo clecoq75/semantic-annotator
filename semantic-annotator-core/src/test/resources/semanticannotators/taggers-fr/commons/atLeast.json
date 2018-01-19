@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "pattern": "(au moins)",
+      "substitutions": "1:ATLEAST",
+      "samples": [ "si au moins" ]
+    },
+    {
+      "pattern": "(à la limite)",
+      "substitutions": "1:ATLEAST",
+      "samples": [ "si à la limite" ]
+    }
+  ]
+}

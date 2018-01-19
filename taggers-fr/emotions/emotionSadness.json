@@ -1,0 +1,59 @@
+{
+  "importRules": [ "very" ],
+  "rules": [
+    {
+      "pattern": "(triste|malheureux|abattre@VPP|accabler@VPP|affliger@VPP|consterner@VPP|attrister@VPP|décourager@VPP|éploré|éplorées|éplorés)",
+      "substitutions": "1:SAD",
+      "samples": [ "Je suis triste", "il est consterné", "elle est attristée",
+        "elles sont tristes", "elles étaient malheureuses", "ils sont abattus",
+        "elles furent accablées", "elle sera affligée", "ils sont consternés",
+        "elle sont découragées", "ils sont éplorés" ]
+    },
+    {
+      "pattern": "(@SAD @NC)",
+      "substitutions": "1:NOTSAD",
+      "samples": [ "un triste jour" ]
+    },
+    {
+      "pattern": "(@NC @SAD)",
+      "substitutions": "1:NOTSAD",
+      "samples": [ "une phrase malheureuse " ]
+    },
+    {
+      "pattern": "(@SAD)",
+      "tags": [ { "value": "emotionSadness", "exported": true } ],
+      "samples": [ "Je suis triste", "il est consterné", "elle est attristée",
+        "elles sont tristes", "elles étaient malheureuses", "ils sont abattus",
+        "elles furent accablées", "elle sera affligée", "ils sont consternés",
+        "elle sont découragées", "ils sont éplorés", "Je suis très triste",
+        "il est colossalement consterné", "elle est énormément attristée",
+        "elles sont excessivement tristes", "elles étaient extrêmement malheureuses",
+        "ils sont fabuleusement abattus", "elles furent immensément accablées",
+        "elle sera infiniment affligée", "ils sont prodigieusement consternés",
+        "elle sont terriblement découragées", "ils sont très éplorés" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [
+        "Je suis triste", "il est consterné", "elle est attristée",
+        "elles sont tristes", "elles étaient malheureuses", "ils sont abattus",
+        "elles furent accablées", "elle sera affligée", "ils sont consternés",
+        "elle sont découragées", "ils sont éplorés", "Je suis très triste",
+        "il est colossalement consterné", "elle est énormément attristée",
+        "elles sont excessivement tristes", "elles étaient extrêmement malheureuses",
+        "ils sont fabuleusement abattus", "elles furent immensément accablées",
+        "elle sera infiniment affligée", "ils sont prodigieusement consternés",
+        "elle sont terriblement découragées", "ils sont très éplorés", "ce triste Dubuche !"
+      ],
+      "tags": [ "emotionSadness"  ]
+    },
+    {
+      "verbatim": [
+        "madame Jory lâcha une phrase malheureuse",
+        "ils laissèrent tomber leurs bras, dans le navrement de leur malheureuse soirée"
+      ],
+      "tags": []
+    }
+  ]
+}

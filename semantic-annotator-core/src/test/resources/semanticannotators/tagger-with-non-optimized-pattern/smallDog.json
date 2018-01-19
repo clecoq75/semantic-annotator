@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "pattern": "(yes:)? :DT (small:JJ|little:JJ) dog:NN (no:)? (:)*",
+      "tags": [ { "value": "smallDog", "exported": true } ],
+      "samples": [ "a little dog" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "I love this little dog" ],
+      "tags": [ "smallDog" ]
+    },
+    {
+      "verbatim": [ "I like this fat cat" ],
+      "tags": [ ]
+    }
+  ]
+}

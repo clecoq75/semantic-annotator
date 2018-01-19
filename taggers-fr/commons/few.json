@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "pattern": "(un peu)",
+      "substitutions": "1:FEW",
+      "samples": [ "je suis un peu malade", "je t'aime un peu" ]
+    }
+  ]
+}

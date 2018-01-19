@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "applyIf": [],
+      "applyIfNot": [],
+      "applyIfNot": [],
+      "pattern": ":DET (petit:ADJ) :NC",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": false } ],
+      "samples": [ "le petit lavabo" ]
+}

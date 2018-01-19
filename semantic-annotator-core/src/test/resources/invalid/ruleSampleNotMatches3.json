@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "regexp": ".* petit .*",
+      "substitutions": "1:SMALL",
+      "tags": [ { "value": "pets", "exported": false } ],
+      "samples": [ "j'en viendrais à bout" ]
+    }
+  ],
+  "unitTests": [
+    {
+      "verbatim": [ "J'aime bien ce petit chien bleu !" ],
+      "tags": [ "smallDog" ]
+    }
+  ]
+}
