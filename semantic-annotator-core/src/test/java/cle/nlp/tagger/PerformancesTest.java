@@ -43,7 +43,7 @@ public class PerformancesTest {
             Node root = PartOfSpeechAnnotator.getInstance(SupportedLanguages.FR).annotate(text);
             Tagger tagger;
             try {
-                tagger = taggerFactory.get("smallTalk");
+                tagger = taggerFactory.get("emotion");
                 allTags = tagger.tag(root);
             } catch (TaggerException pe) {
                 LOGGER.error(pe.getMessage(), pe);
