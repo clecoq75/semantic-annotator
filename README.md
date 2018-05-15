@@ -1,7 +1,10 @@
 [![Build Status](https://travis-ci.org/clecoq75/semantic-annotator.svg?branch=master)](https://travis-ci.org/clecoq75/semantic-annotator)
-[![Technical Debt](https://sonarcloud.io/api/badges/measure?key=cle.nlp:semantic-annotator&metric=code_smells)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
-[![Coverage](https://sonarcloud.io/api/badges/measure?key=cle.nlp:semantic-annotator&metric=coverage)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
-[![Technical Debt](https://sonarcloud.io/api/badges/measure?key=cle.nlp:semantic-annotator&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=bugs)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=coverage)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Reliability](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Security](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=security_rating)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=cle.nlp:semantic-annotator&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=cle.nlp%3Asemantic-annotator)
 
 # Semantic Annotator
 
@@ -137,7 +140,39 @@ The "substitutions" member of a rule allow to replace a matching group by a give
 
 ## The "Semantic Annotator Console"
 
-This tool allow you to test and debug you taggers.
+This tool allow you to test and debug you taggers. This is a command line interface which can be used
+with any text editor to validate your `tagger` files.
+
+##### *Rules validation 'on the fly'*
+
+Each time you save a file, the `Semantic Annotator Console` will validate its content and
+will display debug information in case of error. [Watch the video](https://youtu.be/LR7MsUaMjaA).
+
+##### *Use substitutions*
+
+This [video](https://youtu.be/atdXk_A1wbw) describe the way to create substitutions.
+
+##### *Use substitutions*
+
+This [video](https://youtu.be/9UPJ7QMegLo) describe the way to use a shared `tagger`.
+
+##### *Dependencies validation*
+
+Each time you save a file, the `Semantic Annotator Console` also validates all `tagger`
+which depends on it to check if your modifications does not introduce regressions. [Watch the video](https://youtu.be/4ArdsY7GjIY).
+
+##### *Regexp validation*
+
+Rules based on regular expressions are also validated. [Watch the video](https://youtu.be/nspbeOHv9mg)
+
+##### *Short text validation*
+
+You can test your `taggers` easily. [Watch the video](https://youtu.be/yKuLjzt5cok)
+
+##### *Long text validation*
+
+This feature allow you to run all your `taggers` on a large text file (a book for instance). It is
+really useful to detect invalid annotations. [Watch the video](https://youtu.be/yiNFWylRMyc)
 
 ##### *Run the console with MAVEN:*
 
