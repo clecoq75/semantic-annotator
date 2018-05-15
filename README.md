@@ -135,6 +135,21 @@ The "substitutions" member of a rule allow to replace a matching group by a give
 | @DT (dog@NN&#124;cat@NN) | 1:Pet | the dog | the *Pet* |
 | (hello@&#124;hi) (@NNP) | 1:HI,2:WHO | Hello Bryan | *HI* *WHO* |
 
+## The "Semantic Annotator Console"
+
+This tool allow you to test and debug you taggers.
+
+##### *Run the console with MAVEN:*
+
+If this is the first time you run the console :
+
+`mvn clean install`
+
+Then :
+
+`mvn exec:java -pl semantic-annotator-console`
+
+
 ## How to embed the "Semantic Annotator" in your code :
 ```java
 import cle.nlp.annotator.SemanticAnnotator;
