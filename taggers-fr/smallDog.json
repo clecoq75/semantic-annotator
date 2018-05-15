@@ -11,7 +11,7 @@
       "pattern": "@SMALL chien",
       "substitutions": null,
       "tags": [ { "value": "smallDog", "exported": true } ],
-      "samples": [ "ce petit chien", "le petit chien" ]
+      "samples": [ "ce petit chien", "le petit chien", "le petit cheval ! oo" ]
     },
     {
       "pattern": "chien @SMALL",

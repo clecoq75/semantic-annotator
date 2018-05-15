@@ -143,7 +143,7 @@ This tool allow you to test and debug you taggers.
 
 If this is the first time you run the console :
 
-`mvn clean install`
+`mvn -Dmaven.test.skip=true -pl '!semantic-annotator-console-delivery' clean install`
 
 Then :
 

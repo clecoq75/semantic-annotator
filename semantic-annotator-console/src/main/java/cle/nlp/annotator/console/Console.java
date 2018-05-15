@@ -137,13 +137,8 @@ public class Console implements Runnable, ConsoleApp {
 
     @Override
     public void readLine() throws IOException {
-        if (systemConsole!=null) {
-            systemConsole.readLine();
-        }
-        else {
-            while ('\n'!=in.read()) {
-                println();
-            }
+        while ('\n'!=in.read()) {
+            println();
         }
     }
 
