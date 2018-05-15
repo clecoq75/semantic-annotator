@@ -97,7 +97,7 @@ You can combine multiple patterns by separating them by the boolean operator | (
 | samples;lemma=sample | samples or sample |
 | samples@V | *none* |
 | samples@ | samples or sample |
-| : | *any token* |
+| @ | *any token* |
 | samples@&#124;example:NN | samples, sample, example or examples |
 
 ### Syntactic Patterns
