@@ -25,15 +25,18 @@ public final class NodeUtils {
     public static StringBuilder printNode(Node node, int offset) {
         String prefix = spaces(offset);
         StringBuilder sb = new StringBuilder();
+
+        sb.append(prefix).append(white(node.getText())).append(yellow("@", false));
+
         if (node.isGatheringNode()) {
-            sb.append(prefix).append(cyan(node.getPartOfSpeech())).append(' ');
+            sb.append(cyan(node.getPartOfSpeech()));
         } else  {
-            sb.append(prefix).append(blue(node.getPartOfSpeech())).append(' ');
+            sb.append(blue(node.getPartOfSpeech()));
         }
-        sb.append(node.getText());
+
         MorphologicalProperties m = node.getMorphologicalProperties();
         if (m!=null) {
-            sb.append(' ').append(printMorphologicalProperties(m));
+            sb.append(printMorphologicalProperties(m));
         }
         sb.append('\n');
         List<Node> children = node.getChildren();
