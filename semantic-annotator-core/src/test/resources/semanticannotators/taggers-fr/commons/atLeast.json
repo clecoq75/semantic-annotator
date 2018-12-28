@@ -1,12 +1,17 @@
 {
   "rules": [
     {
-      "pattern": "(au moins)",
+      "pattern": "(au|à (@DET)?)",
+      "substitutions": "1:AT",
+      "samples": [ "à", "au" ]
+    },
+    {
+      "pattern": "(@AT moins)",
       "substitutions": "1:ATLEAST",
       "samples": [ "si au moins" ]
     },
     {
-      "pattern": "(à la limite)",
+      "pattern": "(@AT limite)",
       "substitutions": "1:ATLEAST",
       "samples": [ "si à la limite" ]
     }
