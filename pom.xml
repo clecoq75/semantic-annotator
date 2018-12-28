@@ -64,15 +64,15 @@
         <!-- <org.owasp.dependency-check-maven.version>3.1.0</org.owasp.dependency-check-maven.version> -->
 
         <!-- CoreNLP -->
-        <edu.stanford.nlp.version>3.8.0</edu.stanford.nlp.version>
+        <edu.stanford.nlp.version>3.9.2</edu.stanford.nlp.version>
 
         <!-- Apache Commons -->
-        <org.apache.commons.lang3.version>3.7</org.apache.commons.lang3.version>
-        <org.apache.commons.collections4.version>4.1</org.apache.commons.collections4.version>
+        <org.apache.commons.lang3.version>3.8.1</org.apache.commons.lang3.version>
+        <org.apache.commons.collections4.version>4.2</org.apache.commons.collections4.version>
         <org.apache.commons.commons-io.version>2.6</org.apache.commons.commons-io.version>
 
         <!-- Jackson -->
-        <com.fasterxml.jackson.version>2.9.2</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.9.7</com.fasterxml.jackson.version>
 
         <!-- Logback -->
         <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
