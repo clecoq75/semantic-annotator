@@ -1,7 +1,7 @@
 package cle.io.filewatcher;
 
 import cle.FileSystemTestUtils;
-import cle.TestUtils;
+import cle.utils.Sandman;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,9 +11,7 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BasicFileWatcherTest {
     private static File watchedDir;
@@ -31,9 +29,9 @@ public class BasicFileWatcherTest {
         final Set<File> lastModified = new HashSet<>();
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             File newFile = FileSystemTestUtils.createNewFile(watchedDir);
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile));
@@ -45,16 +43,16 @@ public class BasicFileWatcherTest {
         final Set<File> lastModified = new HashSet<>();
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             File newFile = FileSystemTestUtils.createNewFile(watchedDir);
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile));
             lastModified.clear();
 
             File newFile2 = FileSystemTestUtils.createNewFile(watchedDir);
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile2));
@@ -67,9 +65,9 @@ public class BasicFileWatcherTest {
         File newFile = FileSystemTestUtils.createNewFile(watchedDir);
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertTrue(newFile.delete());
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile));
@@ -81,10 +79,10 @@ public class BasicFileWatcherTest {
         final Set<File> lastModified = new HashSet<>();
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction * 2L);
+            Sandman.sleep(sleepBeforeAction * 2L);
             File newDir = new File(watchedDir, FileSystemTestUtils.generateDirName());
             assertTrue(newDir.mkdir());
-            TestUtils.sleep(sleepPeriod * 2L);
+            Sandman.sleep(sleepPeriod * 2L);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newDir));
@@ -98,9 +96,9 @@ public class BasicFileWatcherTest {
         assertTrue(newDir.mkdir());
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertTrue(newDir.delete());
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newDir));
@@ -114,9 +112,9 @@ public class BasicFileWatcherTest {
         assertTrue(newDir.mkdir());
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction*2L);
+            Sandman.sleep(sleepBeforeAction*2L);
             File newFile = FileSystemTestUtils.createNewFile(newDir);
-            TestUtils.sleep(sleepPeriod*2L);
+            Sandman.sleep(sleepPeriod*2L);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile));
@@ -131,9 +129,9 @@ public class BasicFileWatcherTest {
         File newFile = FileSystemTestUtils.createNewFile(newDir);
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertTrue(newFile.delete());
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newFile));
@@ -147,11 +145,11 @@ public class BasicFileWatcherTest {
         assertTrue(newDir.mkdir());
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             File newSubDir = new File(watchedDir, FileSystemTestUtils.generateDirName());
             assertTrue(newSubDir.mkdir());
 
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newSubDir));
@@ -168,10 +166,10 @@ public class BasicFileWatcherTest {
         assertTrue(newSubDir.mkdir());
 
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertTrue(newSubDir.delete());
 
-            TestUtils.sleep(sleepPeriod);
+            Sandman.sleep(sleepPeriod);
 
             assertEquals(1, lastModified.size());
             assertTrue(lastModified.contains(newSubDir));
@@ -184,7 +182,7 @@ public class BasicFileWatcherTest {
         Thread fileWatchThread = null;
         Thread basicThread = null;
         try (BasicFileWatcher ignored = new BasicFileWatcher(Paths.get(watchedDir.getAbsolutePath()), lastModified::addAll, watcherPeriod)) {
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             for (Thread t : Thread.getAllStackTraces().keySet()) {
                 if (t.getName().startsWith("FileWatch-")) {
                     fileWatchThread = t;
@@ -194,11 +192,11 @@ public class BasicFileWatcherTest {
                 }
             }
             fileWatchThread.interrupt();
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertFalse(fileWatchThread.isAlive());
 
             basicThread.interrupt();
-            TestUtils.sleep(sleepBeforeAction);
+            Sandman.sleep(sleepBeforeAction);
             assertFalse(basicThread.isAlive());
         }
     }

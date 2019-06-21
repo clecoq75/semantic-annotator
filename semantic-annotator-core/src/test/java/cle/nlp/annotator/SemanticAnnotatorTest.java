@@ -8,7 +8,6 @@ import cle.nlp.pattern.exceptions.PatternException;
 import cle.nlp.tagger.Error;
 import cle.nlp.tagger.Tag;
 import cle.nlp.tagger.exceptions.*;
-import cle.utils.regexp.CharSequenceWithTimeOutException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import org.junit.Test;
 
@@ -120,20 +119,6 @@ public class SemanticAnnotatorTest {
             Iterator<Error> iterator = errors.iterator();
             assertEquals(CyclicDependencyException.class, iterator.next().getException().getClass());
             assertEquals(CyclicDependencyException.class, iterator.next().getException().getClass());
-        }
-    }
-
-    @Test
-    public void test_regex_timeout() throws FileNotFoundException {
-        try {
-            load("tagger-with-pattern-timeout", FR);
-            fail("An exception must be thrown.");
-        }
-        catch (SemanticAnnotatorException e) {
-            Collection<Error> errors = e.getErrors();
-            assertEquals(1, errors.size());
-            Error err = errors.iterator().next();
-            assertEquals(CharSequenceWithTimeOutException.class, err.getException().getClass());
         }
     }
 

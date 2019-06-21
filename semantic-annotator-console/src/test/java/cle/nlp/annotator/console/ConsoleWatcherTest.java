@@ -1,7 +1,7 @@
 package cle.nlp.annotator.console;
 
 import cle.FileSystemTestUtils;
-import cle.TestUtils;
+import cle.utils.Sandman;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public class ConsoleWatcherTest extends ConsoleTestBase {
         ConsoleMock console = new ConsoleMock(watchedDir,300L);
         Thread t = new Thread(() -> {
             try {
-                TestUtils.sleep(100L);
+                Sandman.sleep(100L);
                 LOGGER.info("Add new file");
                 FileSystemTestUtils.createNewFile(watchedDir);
             } catch (InterruptedException e) {

@@ -6,8 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import static org.junit.Assert.fail;
 
 public final class TestUtils {
-    private static final TestUtils INSTANCE = new TestUtils();
-
     public static <T> void validateConstructorNotCallable(Class<T> valueType) {
         try {
             Constructor<T> constructor = valueType.getDeclaredConstructor();
@@ -30,18 +28,5 @@ public final class TestUtils {
             }
         }
         return false;
-    }
-
-    public static void sleep(long duration) throws InterruptedException {
-        INSTANCE.pause(duration);
-    }
-
-    private void pause(long duration) throws InterruptedException {
-        long timestamp = System.nanoTime() + (1000000L * duration);
-        while (System.nanoTime()<timestamp) {
-            synchronized (this) {
-                wait(10L);
-            }
-        }
     }
 }

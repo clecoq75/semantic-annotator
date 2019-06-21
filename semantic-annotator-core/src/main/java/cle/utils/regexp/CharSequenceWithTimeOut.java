@@ -1,16 +1,26 @@
 package cle.utils.regexp;
 
 public class CharSequenceWithTimeOut implements CharSequence {
-    private final CharSequence original;
-    private final long timeOutTimeStamp;
-
-    public CharSequenceWithTimeOut(CharSequence original, long timeToLive) {
-        this(original, timeToLive, false);
+    interface Validator {
+        boolean validate();
     }
 
-    private CharSequenceWithTimeOut(CharSequence original, long timeToLive, boolean isTimestamp) {
+    private final CharSequence original;
+    private final long timeOutTimeStamp;
+    private Validator validator;
+
+    public CharSequenceWithTimeOut(CharSequence original, long timeToLive) {
+        this(original, timeToLive, false, null);
+    }
+
+    CharSequenceWithTimeOut(CharSequence original, long timeToLive, Validator validator) {
+        this(original, timeToLive, false, validator);
+    }
+
+    private CharSequenceWithTimeOut(CharSequence original, long timeToLive, boolean isTimestamp, Validator validator) {
         this.original = original;
         this.timeOutTimeStamp = isTimestamp? timeToLive : System.currentTimeMillis() + timeToLive;
+        this.validator = validator;
     }
 
     @Override
@@ -26,11 +36,11 @@ public class CharSequenceWithTimeOut implements CharSequence {
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return new CharSequenceWithTimeOut(original.subSequence(start, end), timeOutTimeStamp, true);
+        return new CharSequenceWithTimeOut(original.subSequence(start, end), timeOutTimeStamp, true, validator);
     }
 
     private void checkTimeOut() {
-        if (System.currentTimeMillis() > timeOutTimeStamp) {
+        if (System.currentTimeMillis() > timeOutTimeStamp || (validator!=null && !validator.validate())) {
             throw new CharSequenceWithTimeOutException("Regular expression timeout");
         }
     }
