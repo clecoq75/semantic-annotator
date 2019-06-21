@@ -3,7 +3,7 @@ language: java
 dist: trusty
 
 jdk:
-  - oraclejdk8
+  - oraclejdk11
 
 install:
   - mvn --projects '!semantic-annotator-console-delivery' install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
