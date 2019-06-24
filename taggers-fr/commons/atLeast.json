@@ -1,7 +1,7 @@
 {
   "rules": [
     {
-      "pattern": "(au moins)",
+      "pattern": "(à le moins)",
       "substitutions": "1:ATLEAST",
       "samples": [ "si au moins" ]
     },

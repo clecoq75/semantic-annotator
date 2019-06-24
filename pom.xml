@@ -51,7 +51,7 @@
     </licenses>
 
     <properties>
-        <java.source.version>8</java.source.version>
+        <java.source.version>11</java.source.version>
         <java.target.version>11</java.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
