@@ -1,7 +1,9 @@
 package cle.nlp.tagger;
 
 import cle.nlp.partofspeech.Node;
-import cle.nlp.pattern.*;
+import cle.nlp.pattern.SentenceSyntacticPattern;
+import cle.nlp.pattern.SyntacticMatcher;
+import cle.nlp.pattern.SyntacticPattern;
 import cle.nlp.pattern.exceptions.InvalidPatternException;
 import cle.nlp.pattern.exceptions.PatternException;
 import cle.nlp.tagger.exceptions.InvalidSubstitutionException;
@@ -30,8 +32,8 @@ public class Rule {
     private Tagger tagger;
     private Set<String> generatedTagLabels;
     private Set<Tag> generatedTags;
-    private Set<Tag> applyIf = new HashSet<>();
-    private Set<Tag> applyIfNot = new HashSet<>();
+    private Set<Tag> applyIf;
+    private Set<Tag> applyIfNot;
 
     public Rule(Tagger tagger, String pattern, String regExprPattern, String substitutions, String generatedTagLabels) throws InvalidPatternException, InvalidSubstitutionException {
         this(tagger, pattern, regExprPattern, substitutions, generatedTagLabels, null, null);
@@ -50,7 +52,7 @@ public class Rule {
         this.applyIfNot = applyIfNot!=null? toTagSet(applyIfNot) : new HashSet<>();
         this.tagger = tagger;
         if (!this.substitutions.isEmpty() && this.pattern==null) {
-            LOGGER.warn("Substitition '{}' won't be applyied as no pattern is specified.", substitutions, tagger);
+            LOGGER.warn("Substitition '{}' won't be applyied as no pattern is specified.", substitutions);
         }
     }
 

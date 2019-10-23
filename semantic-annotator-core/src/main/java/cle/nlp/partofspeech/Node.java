@@ -138,7 +138,7 @@ public class Node {
         else if (beginIndex<0 || beginIndex>=children.size()) {
             throw new IllegalArgumentException("Invalid begin index : "+beginIndex);
         }
-        else if (endIndex<=beginIndex || beginIndex>=children.size()) {
+        else if (endIndex<=beginIndex) {
             throw new IllegalArgumentException("Invalid end index : "+endIndex);
         }
         else if (endIndex>children.size()) {

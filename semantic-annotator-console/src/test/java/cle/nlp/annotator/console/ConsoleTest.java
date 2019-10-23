@@ -7,12 +7,11 @@ import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import static cle.nlp.annotator.console.Console.getBufferedReader;
 import static cle.nlp.annotator.console.Console.trim;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ConsoleTest extends ConsoleTestBase {
     @Before
@@ -75,7 +74,7 @@ public class ConsoleTest extends ConsoleTestBase {
 
     @Test
     public void test_getBufferedReader() throws IOException {
-        try (ByteArrayInputStream bais = new ByteArrayInputStream("yoopy".getBytes("utf-8"));
+        try (ByteArrayInputStream bais = new ByteArrayInputStream("yoopy".getBytes(StandardCharsets.UTF_8));
              BufferedReader buf = getBufferedReader(bais, "utf-8")) {
             assertNotNull(buf);
         }
@@ -83,7 +82,7 @@ public class ConsoleTest extends ConsoleTestBase {
 
     @Test(expected = ConsoleRuntimeException.class)
     public void test_getBufferedReader_with_unsupportedCharset() throws IOException {
-        try (ByteArrayInputStream bais = new ByteArrayInputStream("yoopy".getBytes("utf-8"));
+        try (ByteArrayInputStream bais = new ByteArrayInputStream("yoopy".getBytes(StandardCharsets.UTF_8));
              BufferedReader buf = getBufferedReader(bais, "zökl6g")) {
             assertNotNull(buf);
         }

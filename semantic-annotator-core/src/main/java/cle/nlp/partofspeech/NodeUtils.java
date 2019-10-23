@@ -15,11 +15,7 @@ public final class NodeUtils {
     }
 
     private static String spaces(int length) {
-        StringBuilder sb = new StringBuilder(length*2);
-        for (int i=0; i<length; i++) {
-            sb.append("  ");
-        }
-        return sb.toString();
+        return "  ".repeat(Math.max(0, length));
     }
 
     public static StringBuilder printNode(Node node, int offset) {

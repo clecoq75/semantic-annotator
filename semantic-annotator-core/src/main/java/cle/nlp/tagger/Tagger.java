@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static cle.nlp.tagger.Tag.toTagSet;
@@ -38,7 +39,7 @@ public class Tagger {
     static Tagger load(SupportedLanguages language, String name, InputStream in, TaggerFactory taggerFactory)
             throws IOException, InvalidPatternException, InvalidSubstitutionException {
         TaggerModel model;
-        try (InputStreamReader reader=new InputStreamReader(in,"utf-8")) {
+        try (InputStreamReader reader=new InputStreamReader(in, StandardCharsets.UTF_8)) {
             model = OBJECT_MAPPER.readValue(reader, TaggerModel.class);
         }
         return load(language, name, model, taggerFactory);

@@ -8,6 +8,7 @@ import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class FileSystemRepository implements Repository {
@@ -39,7 +40,7 @@ public class FileSystemRepository implements Repository {
     private void loadModel(File source, Map<String, TaggerModel> models) {
         if (source.isFile()) {
             try (InputStream in = new FileInputStream(source);
-                 InputStreamReader reader = new InputStreamReader(in, "utf-8")) {
+                 InputStreamReader reader = new InputStreamReader(in, StandardCharsets.UTF_8)) {
                 ObjectMapper mapper = source.getName().endsWith(".json")? JSON_MAPPER : YAML_MAPPER;
                 TaggerModel model = mapper.readValue(reader, TaggerModel.class);
                 String name = source.getName().substring(0, source.getName().lastIndexOf('.'));

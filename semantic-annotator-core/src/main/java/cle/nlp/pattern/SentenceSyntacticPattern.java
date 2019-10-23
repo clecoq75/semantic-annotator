@@ -34,7 +34,7 @@ public class SentenceSyntacticPattern implements SyntacticPattern {
     public static final Pattern PATTERN = Pattern.compile(REGEX);
 
     private List<SyntacticPattern> list = new ArrayList<>();
-    private MatchQuantifier quantifier = ONCE;
+    private MatchQuantifier quantifier;
     private List<SentenceSyntacticPattern> groups;
     private SyntacticPattern parent;
 

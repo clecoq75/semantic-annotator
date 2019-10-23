@@ -13,11 +13,7 @@ public class ConsoleHelp {
     }
 
     public static void help(int offset, ConsoleApp console) {
-        StringBuilder sb = new StringBuilder();
-        for (int i=0; i<offset; i++) {
-            sb.append(' ');
-        }
-        String spaces = sb.toString();
+        String spaces = " ".repeat(Math.max(0, offset));
         console.println(spaces+yellow("file: <path>",true)+yellow("  Tag the content of a text file."));
         console.println(spaces+yellow("help",true)+yellow("          Print this message."));
         console.println(spaces+yellow("lang:",true)+yellow("         Change the used language ("+supportedLanguageList()+")."));

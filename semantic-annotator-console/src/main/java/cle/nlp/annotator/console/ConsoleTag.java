@@ -32,11 +32,10 @@ public final class ConsoleTag {
             fullTime = System.nanoTime() - fullTime;
 
             for (Tag tag : allTags) {
-                StringBuilder sb = new StringBuilder(blue(tag.getValue()));
-                sb.append("\n\t").append(yellow("text: ")).append(tag.getText());
-                sb.append("\n\t").append(yellow("tagger: ")).append(tag.getTagger().getName());
-                sb.append("\n\t").append(yellow("rule: ")).append(tag.getRule());
-                console.println(sb.toString());
+                String sb = blue(tag.getValue()) + "\n\t" + yellow("text: ") + tag.getText() +
+                        "\n\t" + yellow("tagger: ") + tag.getTagger().getName() +
+                        "\n\t" + yellow("rule: ") + tag.getRule();
+                console.println(sb);
             }
 
             if (!fullScan) {
