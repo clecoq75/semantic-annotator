@@ -73,7 +73,7 @@
 
         <!-- Jackson -->
         <com.fasterxml.jackson.version>2.9.10</com.fasterxml.jackson.version>
-        <com.fasterxml.jackson-databind.version>2.9.10</com.fasterxml.jackson-databind.version>
+        <com.fasterxml.jackson-databind.version>2.9.10.4</com.fasterxml.jackson-databind.version>
 
         <!-- Logback -->
         <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
