@@ -1,9 +1,6 @@
 language: java
-
-dist: trusty
-
-jdk:
-  - oraclejdk11
+dist: xenial
+sudo: false
 
 install:
   - mvn --projects '!semantic-annotator-console-delivery' install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -13,5 +10,10 @@ addons:
     organization: "clecoq75-github"
 
 script:
-  - mvn --projects '!semantic-annotator-console-delivery' test -B
-  - mvn --projects '!semantic-annotator-console-delivery' clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn --projects '!semantic-annotator-console-delivery' clean install -B
+  - mvn --projects '!semantic-annotator-console-delivery' clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=cle.nlp:semantic-annotator
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
