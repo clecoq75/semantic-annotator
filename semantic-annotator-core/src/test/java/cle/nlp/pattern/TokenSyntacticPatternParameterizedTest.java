@@ -48,9 +48,9 @@ public class TokenSyntacticPatternParameterizedTest {
         });
     }
 
-    private Node node;
-    private String expression;
-    private boolean result;
+    private final Node node;
+    private final String expression;
+    private final boolean result;
 
     public TokenSyntacticPatternParameterizedTest(Node node, String expression, boolean result) {
         this.node = node;

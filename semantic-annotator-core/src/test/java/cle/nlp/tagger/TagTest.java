@@ -27,7 +27,7 @@ public class TagTest {
         Tag tag3 = new Tag("popy", null, null, "titi2");
         assertEquals(tag, tag);
         assertNotEquals(tag, tag3);
-        assertFalse(tag.equals(null));
+        assertNotNull(tag);
         assertNotEquals(tag, new ArrayList<>());
         assertEquals(tag.hashCode(), tag.hashCode());
         assertEquals(tag, tag2);

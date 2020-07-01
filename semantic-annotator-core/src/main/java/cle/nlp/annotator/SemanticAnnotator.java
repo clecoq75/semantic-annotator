@@ -26,7 +26,7 @@ import java.util.HashSet;
 public class SemanticAnnotator {
     private static final Logger LOGGER = LoggerFactory.getLogger(SemanticAnnotator.class);
     private TaggerFactory taggerFactory;
-    private SupportedLanguages language;
+    private final SupportedLanguages language;
 
     /**
      * Build a new semantic annotator using files contained in the given directory.

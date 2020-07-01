@@ -12,7 +12,7 @@ public class TokenSyntacticMatcher implements SyntacticMatcher {
     public static final TokenSyntacticMatcher NO_MATCH = new TokenSyntacticMatcher(false, null, 0, null);
 
     private List<Node> source;
-    private boolean matches;
+    private final boolean matches;
     private int relevance;
     private SyntacticPattern sourcePattern;
 

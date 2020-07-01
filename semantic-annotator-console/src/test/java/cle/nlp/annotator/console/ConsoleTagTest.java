@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static cle.TestUtils.validateConstructorNotCallable;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ConsoleTagTest extends ConsoleTestBase {
@@ -93,7 +94,7 @@ public class ConsoleTagTest extends ConsoleTestBase {
     public void test_file_without_path() throws IOException, SemanticAnnotatorException, TaggerNotFoundException {
         ConsoleMock console = getConsole(true);
         ConsoleTag.tagFile(null, "smallDog", console);
-        assertTrue(console.getOutput().equals(""));
+        assertEquals("", console.getOutput());
     }
 
     @Test

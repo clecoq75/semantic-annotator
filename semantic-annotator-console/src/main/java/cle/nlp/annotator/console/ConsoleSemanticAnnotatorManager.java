@@ -8,12 +8,13 @@ import cle.nlp.tagger.Error;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import static cle.utils.Ansi.*;
+import static cle.utils.Ansi.red;
+import static cle.utils.Ansi.yellow;
 
 public class ConsoleSemanticAnnotatorManager {
-    private ConsoleApp console;
+    private final ConsoleApp console;
     private SemanticAnnotator semanticAnnotator;
-    private File root;
+    private final File root;
 
     public ConsoleSemanticAnnotatorManager(ConsoleApp console, File root) {
         this.console = console;

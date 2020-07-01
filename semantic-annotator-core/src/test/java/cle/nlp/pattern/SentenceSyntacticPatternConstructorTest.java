@@ -29,9 +29,9 @@ public class SentenceSyntacticPatternConstructorTest {
         });
     }
 
-    private String expression;
-    private String result;
-    private boolean optimize;
+    private final String expression;
+    private final String result;
+    private final boolean optimize;
 
     public SentenceSyntacticPatternConstructorTest(boolean optimize, String expression, String result) {
         this.optimize = optimize;

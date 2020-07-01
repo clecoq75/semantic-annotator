@@ -6,13 +6,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConsoleMock implements ConsoleApp {
-    private StringBuilder sb = new StringBuilder();
+    private final StringBuilder sb = new StringBuilder();
     private boolean reload = false;
     private long waitOnRead;
-    private File dir;
+    private final File dir;
     private SemanticAnnotator semanticAnnotator;
     private boolean exceptionOnRead = false;
-    private ConsoleState consoleState = new ConsoleState(null,"", this);
+    private final ConsoleState consoleState = new ConsoleState(null,"", this);
 
     public ConsoleMock() {
         this(ConsoleTestBase.getTaggerFolder("taggers-fr"), 0L);

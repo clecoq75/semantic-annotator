@@ -19,11 +19,11 @@ public class Console implements Runnable, ConsoleApp {
 
     private static final String ERROR_PREFIX = "ERROR: ";
 
-    private ConsoleState consoleState;
-    private ConsoleSemanticAnnotatorManager consoleSemanticAnnotatorManager;
+    private final ConsoleState consoleState;
+    private final ConsoleSemanticAnnotatorManager consoleSemanticAnnotatorManager;
     private boolean isRunning = false;
     private final java.io.Console systemConsole = System.console();
-    private InputStream in;
+    private final InputStream in;
 
     public Console(InputStream in, File root) {
         this.in = in;

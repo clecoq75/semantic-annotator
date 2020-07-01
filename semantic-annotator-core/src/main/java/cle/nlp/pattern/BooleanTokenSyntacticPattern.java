@@ -10,8 +10,8 @@ import java.util.List;
 import static cle.nlp.pattern.TokenSyntacticMatcher.NO_MATCH;
 
 public class BooleanTokenSyntacticPattern implements SyntacticPattern {
-    private List<TokenSyntacticPattern> matchers = new ArrayList<>();
-    private SyntacticPattern parent;
+    private final List<TokenSyntacticPattern> matchers = new ArrayList<>();
+    private final SyntacticPattern parent;
 
     public BooleanTokenSyntacticPattern(String expression, SyntacticPattern parent) throws InvalidPatternException {
         this.parent = parent;

@@ -20,8 +20,8 @@ public class SentenceSyntacticPattern implements SyntacticPattern {
     private static class AnalysisState {
         int patternIndex;
         int nodeIndex;
-        List<SyntacticMatcher> matcherList = new ArrayList<>();
-        List<Node> nodeList;
+        final List<SyntacticMatcher> matcherList = new ArrayList<>();
+        final List<Node> nodeList;
 
         public AnalysisState(int patternIndex, int nodeIndex, List<Node> nodeList) {
             this.patternIndex = patternIndex;
@@ -33,10 +33,10 @@ public class SentenceSyntacticPattern implements SyntacticPattern {
     public static final String REGEX = "^([()| ]*"+REGEX_FULL+"[()| ?*+]*)*$";
     public static final Pattern PATTERN = Pattern.compile(REGEX);
 
-    private List<SyntacticPattern> list = new ArrayList<>();
-    private MatchQuantifier quantifier;
+    private final List<SyntacticPattern> list = new ArrayList<>();
+    private final MatchQuantifier quantifier;
     private List<SentenceSyntacticPattern> groups;
-    private SyntacticPattern parent;
+    private final SyntacticPattern parent;
 
     public static SentenceSyntacticPattern getInstance(String expression) throws InvalidPatternException {
         return getInstance(expression, false);

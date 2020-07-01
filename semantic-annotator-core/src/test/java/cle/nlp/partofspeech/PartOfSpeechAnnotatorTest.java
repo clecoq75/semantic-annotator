@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(Parameterized.class)
 public class PartOfSpeechAnnotatorTest {
@@ -31,8 +31,8 @@ public class PartOfSpeechAnnotatorTest {
         });
     }
 
-    private SupportedLanguages supportedLanguage;
-    private String text;
+    private final SupportedLanguages supportedLanguage;
+    private final String text;
 
     public PartOfSpeechAnnotatorTest(SupportedLanguages supportedLanguage, String text) {
         this.supportedLanguage = supportedLanguage;
@@ -45,6 +45,6 @@ public class PartOfSpeechAnnotatorTest {
         PartOfSpeechAnnotator partOfSpeechAnnotator = PartOfSpeechAnnotator.getInstance(supportedLanguage);
         partOfSpeechAnnotator.annotate(text);
         Node root = partOfSpeechAnnotator.annotate("");
-        assertTrue(root!=null);
+        assertNotNull(root);
     }
 }

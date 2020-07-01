@@ -6,9 +6,9 @@ import cle.nlp.morphology.fr.FrenchMorphologicalPropertiesSet;
 import java.util.EnumMap;
 
 public final class MorphologicalAnalyzer {
-    private static EnumMap<SupportedLanguages,MorphologicalAnalyzer> instances = new EnumMap<>(SupportedLanguages.class);
+    private static final EnumMap<SupportedLanguages,MorphologicalAnalyzer> instances = new EnumMap<>(SupportedLanguages.class);
 
-    private MorphologicalPropertiesSet morphologicalPropertiesSet;
+    private final MorphologicalPropertiesSet morphologicalPropertiesSet;
 
     public static MorphologicalAnalyzer getInstance(SupportedLanguages language) {
         MorphologicalAnalyzer result = instances.get(language);

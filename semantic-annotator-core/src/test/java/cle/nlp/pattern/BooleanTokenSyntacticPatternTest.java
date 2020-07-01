@@ -33,9 +33,9 @@ public class BooleanTokenSyntacticPatternTest {
         });
     }
 
-    private Node node;
-    private String expression;
-    private boolean result;
+    private final Node node;
+    private final String expression;
+    private final boolean result;
 
     public BooleanTokenSyntacticPatternTest(Node node, String expression, boolean result) {
         this.node = node;

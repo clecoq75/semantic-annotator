@@ -28,8 +28,8 @@ public class SentenceSyntacticPatternValidateParenthesisParameterizedTest {
         });
     }
 
-    private String expression;
-    private boolean result;
+    private final String expression;
+    private final boolean result;
 
     public SentenceSyntacticPatternValidateParenthesisParameterizedTest(String expression, boolean result) {
         this.expression = expression;

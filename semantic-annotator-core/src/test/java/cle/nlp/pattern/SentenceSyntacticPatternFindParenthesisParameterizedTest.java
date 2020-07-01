@@ -25,9 +25,9 @@ public class SentenceSyntacticPatternFindParenthesisParameterizedTest {
         });
     }
 
-    private String expression;
-    private int start;
-    private int result;
+    private final String expression;
+    private final int start;
+    private final int result;
 
     public SentenceSyntacticPatternFindParenthesisParameterizedTest(String expression, int start, int result) {
         this.expression = expression;

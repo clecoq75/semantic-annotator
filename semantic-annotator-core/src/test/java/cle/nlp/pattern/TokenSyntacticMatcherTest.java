@@ -29,13 +29,13 @@ public class TokenSyntacticMatcherTest {
         });
     }
 
-    private TokenSyntacticMatcher matcher;
-    private boolean matches;
-    private Collection<Node> matchedNodes;
-    private int matchedNodesCount;
-    private int relevance;
-    private SyntacticPattern source;
-    private String toStringResult;
+    private final TokenSyntacticMatcher matcher;
+    private final boolean matches;
+    private final Collection<Node> matchedNodes;
+    private final int matchedNodesCount;
+    private final int relevance;
+    private final SyntacticPattern source;
+    private final String toStringResult;
 
     public TokenSyntacticMatcherTest(TokenSyntacticMatcher matcher, boolean matches, Collection<Node> matchedNodes,
                                      int matchedNodesCount, int relevance, SyntacticPattern source, String toStringResult) {

@@ -17,7 +17,7 @@ public class FileSystemRepository implements Repository {
     private static final SuffixFileFilter SUFFIX_FILE_FILTER = new SuffixFileFilter(new String[] { ".json", ".yml" });
 
     private Map<String, TaggerModel> taggers;
-    private List<Error> errors = new ArrayList<>();
+    private final List<Error> errors = new ArrayList<>();
 
     public FileSystemRepository(File directory) throws FileNotFoundException {
         if (directory==null) {

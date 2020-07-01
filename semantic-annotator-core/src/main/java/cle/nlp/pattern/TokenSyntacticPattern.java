@@ -28,7 +28,7 @@ public class TokenSyntacticPattern implements SyntacticPattern {
     private String text;
     private String pos;
     private MorphologicalProperties morphologicalProperties;
-    private SyntacticPattern parent;
+    private final SyntacticPattern parent;
 
     public TokenSyntacticPattern(String expression, SyntacticPattern parent) throws InvalidPatternException {
         this.parent = parent;

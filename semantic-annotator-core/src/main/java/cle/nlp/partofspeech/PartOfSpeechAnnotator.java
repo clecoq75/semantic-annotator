@@ -26,10 +26,10 @@ public class PartOfSpeechAnnotator {
     private static final String CNLP_LANGUAGE_KEY = "tokenize.language";
     private static final String CNLP_MODEL_KEY = "pos.model";
 
-    private static EnumMap<SupportedLanguages,PartOfSpeechAnnotator> instances = new EnumMap<>(SupportedLanguages.class);
+    private static final EnumMap<SupportedLanguages,PartOfSpeechAnnotator> instances = new EnumMap<>(SupportedLanguages.class);
 
     private StanfordCoreNLP pipelinePOS;
-    private SupportedLanguages language;
+    private final SupportedLanguages language;
 
 
     public static PartOfSpeechAnnotator getInstance(SupportedLanguages language) {

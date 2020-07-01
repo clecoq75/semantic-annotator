@@ -18,7 +18,7 @@ public class FrenchMorphologicalPropertiesSet implements MorphologicalProperties
 
     private static FrenchMorphologicalPropertiesSet instance;
 
-    HashMap<String, HashMap<String,FrenchMorphologicalProperties>> tagSet = new HashMap<>();
+    final HashMap<String, HashMap<String,FrenchMorphologicalProperties>> tagSet = new HashMap<>();
 
     private static final HashMap<String,List<String>> CORRESPONDENCES = new HashMap<>();
     static {

@@ -86,9 +86,9 @@ public class SentenceMatcherTest {
         });
     }
 
-    private String expression;
-    private List<Node> list;
-    private boolean expected;
+    private final String expression;
+    private final List<Node> list;
+    private final boolean expected;
 
     public SentenceMatcherTest(String expression, List<Node> list, boolean result) {
         this.expression = expression;

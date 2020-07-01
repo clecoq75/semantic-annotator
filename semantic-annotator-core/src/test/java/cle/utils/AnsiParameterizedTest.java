@@ -54,8 +54,8 @@ public class AnsiParameterizedTest {
         });
     }
 
-    private String actual;
-    private String expected;
+    private final String actual;
+    private final String expected;
 
     public AnsiParameterizedTest(String actual, String expected) {
         this.actual = actual;

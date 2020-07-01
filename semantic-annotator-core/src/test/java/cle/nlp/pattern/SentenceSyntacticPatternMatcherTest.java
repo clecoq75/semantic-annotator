@@ -43,9 +43,9 @@ public class SentenceSyntacticPatternMatcherTest {
             node("qui", "PROPEL"),
             node("chante", "V"));
 
-    private String expression;
-    private Node sentence;
-    private String expected;
+    private final String expression;
+    private final Node sentence;
+    private final String expected;
 
     public SentenceSyntacticPatternMatcherTest(String expression, Node sentence, String expected) {
         this.expression = expression;

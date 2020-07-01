@@ -11,10 +11,10 @@ public class SentenceSyntacticMatcher implements SyntacticMatcher {
 
     public static final SentenceSyntacticMatcher NO_MATCH = new SentenceSyntacticMatcher(false, null, null);
 
-    private List<SyntacticMatcher> subMatchers;
-    private boolean matches;
+    private final List<SyntacticMatcher> subMatchers;
+    private final boolean matches;
     private int relevance = 0;
-    private SyntacticPattern sourcePattern;
+    private final SyntacticPattern sourcePattern;
 
     SentenceSyntacticMatcher(boolean matches, List<SyntacticMatcher> subMatchers, SyntacticPattern sourcePattern) {
         this.matches = matches;

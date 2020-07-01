@@ -26,8 +26,8 @@ public class SentenceSyntacticPatternToStringParameterizedTest {
         });
     }
 
-    private String expression;
-    private String result;
+    private final String expression;
+    private final String result;
 
     public SentenceSyntacticPatternToStringParameterizedTest(String expression, String result) {
         this.expression = expression;

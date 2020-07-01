@@ -71,10 +71,10 @@ public class RuleParameterizedTest {
         });
     }
 
-    private String text;
-    private Rule rule;
-    private String expected;
-    private Set<Tag> tags;
+    private final String text;
+    private final Rule rule;
+    private final String expected;
+    private final Set<Tag> tags;
 
     public RuleParameterizedTest(String text, Rule rule, String expected, Set<Tag> tags) {
         this.text = text;

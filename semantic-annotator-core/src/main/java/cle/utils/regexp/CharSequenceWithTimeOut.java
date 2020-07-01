@@ -7,7 +7,7 @@ public class CharSequenceWithTimeOut implements CharSequence {
 
     private final CharSequence original;
     private final long timeOutTimeStamp;
-    private Validator validator;
+    private final Validator validator;
 
     public CharSequenceWithTimeOut(CharSequence original, long timeToLive) {
         this(original, timeToLive, false, null);

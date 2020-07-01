@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -60,7 +61,7 @@ public final class ConsoleTag {
             return;
         }
 
-        String text = FileUtils.readFileToString(f, "utf-8");
+        String text = FileUtils.readFileToString(f, StandardCharsets.UTF_8);
 
         if (!StringUtils.isBlank(text)) {
             tag(text, currentTagger, console, true);

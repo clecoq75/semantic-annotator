@@ -31,7 +31,7 @@ public class Tagger {
     private final Set<Tag> exportedTags;
     private final List<String> importRules;
     private final List<String> collection;
-    private SupportedLanguages language;
+    private final SupportedLanguages language;
     private List<UnitTest> unitTests;
 
     private TaggerFactory taggerFactory;

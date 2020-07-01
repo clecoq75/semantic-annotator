@@ -24,7 +24,7 @@ public class TaggerParameterizedTest {
         });
     }
 
-    private String file;
+    private final String file;
 
     public TaggerParameterizedTest(String file) {
         this.file = file;

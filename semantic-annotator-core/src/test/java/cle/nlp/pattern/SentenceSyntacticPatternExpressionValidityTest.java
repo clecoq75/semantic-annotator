@@ -7,9 +7,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static cle.nlp.pattern.SentenceSyntacticPattern.PATTERN;
-import static cle.nlp.pattern.SentenceSyntacticPattern.isValidExpression;
-import static cle.nlp.pattern.SentenceSyntacticPattern.validateParenthesis;
+import static cle.nlp.pattern.SentenceSyntacticPattern.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.runners.Parameterized.Parameters;
@@ -33,8 +31,8 @@ public class SentenceSyntacticPatternExpressionValidityTest {
         });
     }
 
-    private String expression;
-    private boolean result;
+    private final String expression;
+    private final boolean result;
 
     public SentenceSyntacticPatternExpressionValidityTest(String expression, boolean result) {
         this.expression = expression;
