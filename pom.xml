@@ -79,7 +79,7 @@
         <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
 
         <!-- tests -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <org.mockito.version>1.10.19</org.mockito.version>
     </properties>
 
